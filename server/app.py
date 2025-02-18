@@ -23,3 +23,21 @@ def count(number):
     numbers = "\n".join(str(i) for i in range(number)) + "\n"
     print(numbers)
     return numbers
+
+@app.route("/math/<int:num1>/<string:operation>/<int:num2>")
+def math(num1, num2, operation):
+    if operation == "+":
+        result = str(num1 + num2)
+    elif operation == "-":
+        result = str(num1 - num2)
+    elif operation == "*":
+        result = str(num1 * num2)
+    elif operation == "div":
+        result = str(num1 / num2)
+    elif operation == "%":
+        result = str(num1 % num2)
+    else:
+        result = "INVALID OPERATOR"
+    
+    print(result)
+    return result
